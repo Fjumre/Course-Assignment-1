@@ -56,7 +56,7 @@ public class AddressDAO implements InterfaceAddressDAO {
     }
 
     @Override
-    public Map<Person, Long> getPersonsWithHobbyCountByAddress(Address address) {
+    public Map<Person, Long> getPersonsWithHobbyCountByAddress(String address) {
         try (EntityManager em = emf.createEntityManager()) {
             List<Person> people = em.createQuery("SELECT p " +
                             "FROM Person p " +

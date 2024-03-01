@@ -13,5 +13,5 @@ public interface InterfaceAddressDAO {
 
     List<Object[]> allZipCodesAndCities();
 
-    Map<Person, Long> getPersonsWithHobbyCountByAddress(Address address);
+    Map<Person, Long> getPersonsWithHobbyCountByAddress(String address);
 }

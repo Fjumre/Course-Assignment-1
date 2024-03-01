@@ -10,6 +10,7 @@ import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 import static junit.framework.TestCase.*;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -326,7 +327,10 @@ public class PersonDAOTest {
 
         String address= "Hovedgaden 72";
 
-        List<Person> foundPersons= (List<String>) addressDAO.getPersonsWithHobbyCountByAddress(address);
+        Map<Person, Long> personsWithHobbyCount = addressDAO.getPersonsWithHobbyCountByAddress(address);
+
+        personsWithHobbyCount.forEach((person, count) ->
+                System.out.println(person.getFirstName() + " has " + count + " hobbies."));
     }
 
     @Test
