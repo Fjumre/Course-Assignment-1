@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "address")
@@ -28,9 +30,9 @@ public class Address {
     @JoinColumn(name = "zipcode_id", referencedColumnName = "zip")
     private ZipCode zipCode;
 
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    private Person person;
+
+    @OneToMany(mappedBy = "address")
+    private Set<Person> personSet= new HashSet<>();
 
     @Column(name = "updated", nullable = false)
     private LocalDateTime updated;
@@ -62,4 +64,11 @@ public class Address {
         }
     }
 
+    public void addPerson(Person person) {
+        if (personSet == null) {
+            personSet = new HashSet<>();
+        }
+        personSet.add(person);
+        person.setAddress(this);
+    }
 }

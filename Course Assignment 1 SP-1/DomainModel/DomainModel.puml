@@ -46,7 +46,7 @@ class ZipCode {
 
 Person "1" -- "1" Password : has >
 Person "1" -- "0..*" PhoneNumber : has >
-Person "1" -- "0..1" Address : lives at >
+Person "1" -- "1" Address : lives at >
 Address "1" -- "0..*" Person : includes >
 Person "0..*" -- "0..*" Hobby : enjoys >
 Address "1" -- "1" ZipCode : located in >

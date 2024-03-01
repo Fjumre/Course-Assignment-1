@@ -48,8 +48,8 @@ public class Person {
     @Column(name = "updated", nullable = false)
     private LocalDateTime updated;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "address_id", nullable = false)
     private Address address;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -109,10 +109,10 @@ public class Person {
         hobbySet.remove(hobby);
         hobby.getPerson().remove(this);
     }
-    public void addAddress(Address address){
+    public void addAddress(Address address) {
         this.address = address;
-        if (address!= null){
-            address.setPerson(this);
+        if (address != null) {
+            address.addPerson(this);
         }
     }
 
