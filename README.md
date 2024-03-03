@@ -3,7 +3,7 @@ about people and their hobbies but also offers a matchmaking service.
 Users can input their hobbies and interests, and the platform can connect 
 them with like-minded individuals or groups in their local area. 
 This would add a social networking element to the service and encourage 
-people to explore new hobbies together, fostering real-world connections."
+people to explore new hobbies together, fostering real-world connections." From the assignment description
 
 
 Domain Model:
